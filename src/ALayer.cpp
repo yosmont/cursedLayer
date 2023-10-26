@@ -13,10 +13,10 @@ bool layeredCurses::ALayer::CheckTimer(float deltaTime)
 void layeredCurses::ALayer::DrawOnMap(std::vector<std::vector<char>> miniMap, int startY, int startX)
 {
     for (size_t i{0}; miniMap.size() > i; ++i) {
-        if (LINES <= (i + startY))
+        if ((size_t)LINES <= (i + startY))
             break;
         for (size_t j{0}; miniMap[i].size() > j; ++j) {
-            if (COLS <= (j + startX))
+            if ((size_t)COLS <= (j + startX))
                 break;
             if (miniMap[i][j] != -1)
                 _map[i + startY][j + startX] = miniMap[i][j];

@@ -23,7 +23,7 @@ void layeredCurses::LayeredScene::MergeMap(void)
     _lastMergedMap = _layer[0]->GetMap();
     for (int i{0}; LINES > i; ++i)
         for (int j{0}; COLS > j; ++j)
-            for (int k{1}; _layer.size() > k; ++k)
+            for (size_t k{1}; _layer.size() > k; ++k)
                 if (_layer[k]->GetMap()[i][j] != -1)
                     _lastMergedMap[i][j] = _layer[k]->GetMap()[i][j];
 }
