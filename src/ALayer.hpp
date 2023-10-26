@@ -10,13 +10,14 @@ namespace layeredCurses {
         public:
             //update layer map, return true if a update as been done (use to check if the display need to be refresh)
             virtual bool Update(float deltaTime) = 0;
-            //GetMap : get the array of the map, ex: \
-                [-1, -1, -1,  0]    \
-                [-1, -1,  0,  0]    \
-                [-1,  0,  0,  0]    \
-                [-1, -1,  0,  0]    \
-                [-1, -1, -1,  0]    \
+            /*GetMap : get the array of the map, ex:
+                [-1, -1, -1,  0]
+                [-1, -1,  0,  0]
+                [-1,  0,  0,  0]
+                [-1, -1,  0,  0]
+                [-1, -1, -1,  0]
                 with -1: alpha, everything else: char code (0 being space)
+            */
             virtual std::vector<std::vector<char>> &GetMap(void) {return _map;};
             //init timer max
             ALayer(float timerMax) : _timerMax{timerMax} {ResetMap();}
