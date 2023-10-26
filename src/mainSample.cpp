@@ -21,9 +21,7 @@ int main(int ac, char **av, char **env)
     layeredCurses::LayeredScene scene{std::vector<std::shared_ptr<layeredCurses::ALayer>>{
         // Add layer here
     }};
-    std::thread t{layeredCurses::LayeredScene::SceneLoop, &scene};
     quit.get_future().wait();
     scene.Exit();
-    t.join();
     endwin();
 }
